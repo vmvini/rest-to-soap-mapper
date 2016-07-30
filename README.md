@@ -1,6 +1,10 @@
 # rest-to-soap-mapper
 Npm module that creates a bridge between existing soap web services and node-express rest apis
 
+**Installing on your node project**
+
+`npm install rest-to-soap-mapper --save`
+
 **Example 1 - GET method without request parameters**
 
         var wsdl = 'http://example.com/WebService?wsdl';
