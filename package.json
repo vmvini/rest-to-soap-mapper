@@ -1,0 +1,34 @@
+{
+  "name": "rest-to-soap-mapper",
+  "version": "0.1.0",
+  "description": "Creates a bridge between existing soap web services and node-express rest apis",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vmvini/rest-to-soap-mapper.git"
+  },
+  "keywords": [
+    "soap",
+    "wsdl",
+    "rest",
+    "api",
+    "node",
+    "express"
+  ],
+  "author": {
+    "name": "Marcus Vinícius",
+    "email": "vmvini@hotmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vmvini/rest-to-soap-mapper/issues"
+  },
+  "homepage": "https://github.com/vmvini/rest-to-soap-mapper#readme",
+  "dependencies": {
+    "express": "^4.14.0",
+    "soap": "^0.16.0"
+  }
+}
