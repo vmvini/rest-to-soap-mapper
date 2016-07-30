@@ -11,7 +11,7 @@ Npm module that creates a bridge between existing soap web services and node-exp
 
 In the above code, `controller(wsdl, function(client){})...` is creating for me a `function(req, res){}`
 which will handle the user's get request. This handler will automatically catch error and success events in the whole process
-of getting the webservice client as well as its methods calls. Thus, you doesn't need write code to handle errors and send responses to the user.
+of getting the webservice client as well as its methods calls. Thus, you don't need write code to handle errors and send responses to the user.
 
 In case of success of the desiredWebServiceMethod call, a response with the data from the webserver is automatically sent to the user.
 
