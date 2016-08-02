@@ -9,7 +9,7 @@ Npm module that creates a bridge between existing soap web services and node-exp
 
         var wsdl = 'http://example.com/WebService?wsdl';
         var controller = require('rest-to-soap-mapper');
-        router.get('/myroute', controller(wsdl, 'desiredWebServiceMethod'); 
+        router.get('/myroute', controller(wsdl, 'desiredWebServiceMethod') ); 
 
 In the above code, `controller(wsdl, 'desiredWebServiceMethod');` is creating for me a `function(req, res){}`
 which will handle the user's get request. This handler will automatically catch error and success events in the whole process
@@ -21,7 +21,7 @@ In case of success of the desiredWebServiceMethod call, a response with the data
         
         var wsdl = 'http://example.com/WebService?wsdl';
         var controller = require('rest-to-soap-mapper');
-        router.get('/myroute', controller(wsdl, 'desiredWebServiceMethod', setArgs );  
+        router.get('/myroute', controller(wsdl, 'desiredWebServiceMethod', setArgs ) );  
         
         function setArgs(req){
           return {
@@ -38,7 +38,7 @@ If you want to ensure that only requests with certain parameters will be precess
 
 **Example 3 - GET method with request validation**
 
-        router.get('/myroute', validation, controller(wsdl, 'desiredWebServiceMethod', setArgs ); 
+        router.get('/myroute', validation, controller(wsdl, 'desiredWebServiceMethod', setArgs ) ); 
         
         function validation(req, res, next){
           if(!req.query.param1 || !req.query.param2 ){
@@ -54,7 +54,7 @@ The validation function will act as a middleware and only will pass the request 
 
 **Example 4 - POST method with request validation**
 
-        router.post('/myroute', validation, controller(wsdl, 'desiredWebServiceMethod', setArgs ); 
+        router.post('/myroute', validation, controller(wsdl, 'desiredWebServiceMethod', setArgs ) ); 
         
         function setArgs(req){
           return {
