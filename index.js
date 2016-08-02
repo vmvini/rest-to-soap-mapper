@@ -3,7 +3,7 @@
  * MIT Licensed
  */
 
-module.exports = function(wsdl, setMethodToCall, setArgs ){
+module.exports = function(wsdl, methodToCall, setArgs ){
 
 	var RestSoap = require('./restsoap');
 
@@ -22,7 +22,7 @@ module.exports = function(wsdl, setMethodToCall, setArgs ){
 			soapClient
 				.setArgs(args)
 				.setMethodToCall( function(client){
-					return setMethodToCall(client);
+					return client[methodToCall];
 				} )
 				.execute();
 

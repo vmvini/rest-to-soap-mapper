@@ -1,6 +1,6 @@
 {
   "name": "rest-to-soap-mapper",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Creates a bridge between existing soap web services and node-express rest apis",
   "main": "index.js",
   "scripts": {
