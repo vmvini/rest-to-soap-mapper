@@ -8,7 +8,28 @@ var RestSoap = function(req, res){
 	var soap = require('soap');
 
 	return function(wsdl, clientSoapCallback){
-		
+		if(wsdl.auth !== undefined){
+			var auth = "Basic " + new Buffer(wsdl.auth.login + ":" + wsdl.auth.password).toString("base64");
+			soap.createClient(wsdl.wsdl, { wsdl_headers: {Authorization: auth} }, function(err, client){
+				var soapClient;
+
+				if(err){
+					res.status(404);
+					res.json({err:err, message: "Connection to web service failed"});
+					return;
+				}
+				if(!client){
+					res.status(404);
+					res.json({message:"The soap client wasn't obtained" });
+					return;
+				}
+
+				soapClient = new SoapClient(client, wsdl.auth);
+
+				clientSoapCallback(soapClient);
+
+			});
+		} else {
 			soap.createClient(wsdl, function(err, client){
 				var soapClient;
 
@@ -28,13 +49,17 @@ var RestSoap = function(req, res){
 				clientSoapCallback(soapClient);
 
 			});
-
+		}
 	};
 	
-	function SoapClient(client){
+	function SoapClient(client, auth){
 
 		var args;
 		var methodToCall;
+
+		if(auth) {
+			client.setSecurity(new soap.BasicAuthSecurity(auth.login, auth.password));
+		}
 
 		this.setArgs = function(argsParam){
 			args = argsParam;
