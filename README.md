@@ -71,3 +71,16 @@ The validation function will act as a middleware and only will pass the request 
         	}
         	next(); 
         }
+
+**Example 5 - GET method with HTTP Basic Authentication**
+
+        var wsdl = {
+            wsdl: 'http://example.com/WebService?wsdl',
+            auth: {
+                login: 'demo',
+                password: 'password'
+            }
+        };
+        var controller = require('rest-to-soap-mapper');
+        router.get('/myroute', controller(wsdl, 'desiredWebServiceMethod') ); 
+        
